@@ -1,0 +1,25 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper
+  PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+  "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="org.iclass.mvc.dao.GalleryMapper">
+
+	<select id="getList" resultType="Gallery">
+		select * from gallery order by idx desc
+	</select>
+	
+	<insert id="save" parameterType="Gallery">
+		insert into gallery(idx,title,filenames,writer) 
+		values(gal_idx_seq.nextval,#{title},#{filenames},#{writer})
+	</insert>
+
+	<select id="getOne" resultType="Gallery" parameterType="String">
+		select * from gallery where writer = #{writer}
+	</select>
+	
+	<select id="hearts" parameterType="int">
+		select hearts from gallery where idx = #{idx}
+	</select>
+
+</mapper>
+
