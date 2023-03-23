@@ -31,6 +31,7 @@ public class GalleryServieImpl implements GalleryService {
 	@Override
 	public int save(Gallery dto) {		// controller 에서 넘어온 parameter 값들로 insert + fileUpload
 		String path = "D:\\i_Class1020\\uploads";
+		StringBuilder filenames = new StringBuilder();		// 테이블 컬럼으로 전달될 파일명들(, 로 구분)
 		// 파일 업로드
 		for(MultipartFile f : dto.getPics()) {
 			if(f.getSize()!=0) {								// getSize() : 첨부파일의 크기
@@ -51,11 +52,13 @@ public class GalleryServieImpl implements GalleryService {
 				// 저장
 				try {
 					f.transferTo(file);
+					filenames.append(newfile).append(",");
 				} catch (IOException e) {	}
 				
 			}
 		}
-		return 0;
+		dto.setFilenames(filenames.toString());
+		return dao.save(dto);
 	}
 
 	@Override

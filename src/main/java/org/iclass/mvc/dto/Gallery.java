@@ -22,7 +22,7 @@ public class Gallery {		// POJO : bean 생성이 안되는 일반적인 자바 �
 
 	private int idx;
 	private String title;
-	private String filename;		// 파일명 여러개를 , 로 구분해서 사용
+	private String filenames;		// 파일명 여러개를 , 로 구분해서 사용
 	private LocalDateTime createAt;
 	private String writer;
 	private int hearts;
