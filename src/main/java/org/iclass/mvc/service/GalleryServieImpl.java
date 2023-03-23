@@ -35,7 +35,10 @@ public class GalleryServieImpl implements GalleryService {
 		for(MultipartFile f : dto.getPics()) {
 			if(f.getSize()!=0) {								// getSize() : 첨부파일의 크기
 				String ofilename = f.getOriginalFilename();		// 원래 파일명 (파일이름.확장자)
-				String prefix = ofilename.substring(0, ofilename.lastIndexOf(".")); // 파일이름
+				
+				// 원래파일명을 사용할 경우 파일이름이 길어질까봐 주석처리함. 
+//				String prefix = ofilename.substring(0, ofilename.lastIndexOf(".")); // 파일이름
+				
 				String postfix = ofilename.substring(ofilename.lastIndexOf("."));	// 확장자
 				StringBuilder newfile = new StringBuilder("gallert_")
 				//		.append(prefix)			// 원래파일명
