@@ -28,6 +28,6 @@ public class Gallery {		// POJO : bean 생성이 안되는 일반적인 자바 �
 	private int hearts;
 	
 	// 테이블 컬럼에는 없고, 파일업로드에 사용합니다
-	private List<MultipartFile> pics;
+	private List<MultipartFile> pics;		// html에 pics
 	
 }
