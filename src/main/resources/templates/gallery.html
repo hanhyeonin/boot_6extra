@@ -1,0 +1,25 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+<meta charset="UTF-8">
+<title>Gallery</title>
+</head>
+<body>
+<!-- header.html 가져와서 header자리에 넣어준다. 레이아웃의 상단은 header.html -->
+<header th:replace="header.html::header"></header>
+<h3>파일 업로드 테스트</h3>
+<hr>
+<form action="gallery" method="post" enctype="multipart/form-data"><!-- multipart 키워드 보고 파라미터 처리 -->
+	<input type="text" th:value="${session.id}" name="writer" readonly><br>
+	<input type="text" placeholder="제목" name="title"><br>
+	<!-- 이미지 파일은 최대 3개로 첨부합니다 -->
+	<!-- accept="image/*" = 이미지만 나오게 함 -->
+	<input type="file" name="pics" accept="image/*"><br>
+	<input type="file" name="pics" accept="image/*"><br>
+	<input type="file" name="pics" accept="image/*"><br>
+	<button>전송</button>
+</form>
+<hr>
+<h3>Gallery 테이블의 내용을 출력합니다.</h3>
+</body>
+</html>
